@@ -13,13 +13,28 @@ router.post('/', async (req, res) => {
   }
 });
 
+
 router.get('/', async (req, res) => {
   try {
+    const {id} = req.params
+    const books = await Book.find();
+    res.json(books);
+   
+  } catch (err) {
+     res.status(500).json({ error: err.message });
+  }
+});
+
+router.get('/', async (req, res) => {
+  try {
+    const {id} = req.params
    
   } catch (err) {
     
   }
 });
+
+
 
 router.put('/', async (req, res) => {
   try {
@@ -32,11 +47,13 @@ router.put('/', async (req, res) => {
 
 router.delete('/', async (req, res) => {
   try {
-   const book = await Book.findByIdAndDelete(req.params.id);
-
+    const {id} = req.params
+    const book = await Book.findByIdAndDelete(id);
+     if (!book)
+      return res.status(404)
    res.json({ message: 'Book deleted' });
   } catch (err) {
-    
+    res.status(500).json({ error: err.message });
   }
 });
 
