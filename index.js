@@ -5,6 +5,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bookRoutes from './routes/bookRoutes.js'
 
+const uri = process.env.MONGO_URI
 mongoose.connect(uri)
     .then(() => {
         console.log('Successfully connected to MongoDB!')
