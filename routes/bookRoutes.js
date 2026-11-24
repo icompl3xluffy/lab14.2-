@@ -26,14 +26,16 @@ router.get('/', async (req, res) => {
   }
 });
 
-// router.get('/', async (req, res) => {
-//   try {
-//     const {id} = req.params
-   
-//   } catch (err) {
-    
-//   }
-// });
+router.get('/:id', async (req, res) => {
+  try {
+    const {id} = req.params
+    const book = await Book.findById(id);
+   if (!book) return res.status(404).json({ error: 'Book not found' });
+    res.json(book);
+  } catch (err) {
+     res.status(400).json({ error: err.message });
+  }
+});
 
 
 
