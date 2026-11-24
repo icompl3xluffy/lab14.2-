@@ -7,9 +7,10 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   try {
-   
+    const book = await Book.create(req.body);
+   res.status(201).json(book);
   } catch (err) {
-    
+     res.status(400).json({ error: err.message });
   }
 });
 
