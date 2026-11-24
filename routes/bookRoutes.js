@@ -39,7 +39,7 @@ router.get('/:id', async (req, res) => {
 
 
 
-router.put('/', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const {id} = req.params
    const book = await Book.findByIdAndUpdate(id, req.body, {
