@@ -39,13 +39,19 @@ router.get('/:id', async (req, res) => {
 
 
 
-// router.put('/', async (req, res) => {
-//   try {
-   
-//   } catch (err) {
+router.put('/', async (req, res) => {
+  try {
+    const {id} = req.params
+   const book = await Book.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+     if (!book) return res.status(404).json({ error: 'Book not found' });
+     res.json({ message: 'Book was updated', book });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
     
-//   }
-// }); 
+}); 
 
 
 router.delete('/:id', async (req, res) => {
