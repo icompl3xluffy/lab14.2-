@@ -1,17 +1,17 @@
 import express from 'express';
-import Book from '../models/Book.js';
+import Book from '../models/books.js';
 
 const router = express.Router();
 
 
 
-router.post('/', async (req, res) => {
-  try {
+// router.post('/', async (req, res) => {
+//   try {
    
-  } catch (err) {
+//   } catch (err) {
     
-  }
-});
+//   }
+// });
 
 
 router.get('/', async (req, res) => {
@@ -25,24 +25,24 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/', async (req, res) => {
-  try {
-    const {id} = req.params
+// router.get('/', async (req, res) => {
+//   try {
+//     const {id} = req.params
    
-  } catch (err) {
+//   } catch (err) {
     
-  }
-});
+//   }
+// });
 
 
 
-router.put('/', async (req, res) => {
-  try {
+// router.put('/', async (req, res) => {
+//   try {
    
-  } catch (err) {
+//   } catch (err) {
     
-  }
-}); 
+//   }
+// }); 
 
 
 router.delete('/', async (req, res) => {
